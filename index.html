@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+   
+          <meta charset="UTF-8"/>
+          <meta name="viewport" content="width=device-width ,initial-scale=1.0" />
+          <title>Accordion</title>
+        
+          <style>
+              
+                 #app{
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 flex-direction: column;
+             }
+             
+              h1{
+                  font-family: cursive;
+              }
+              
+              .question-box:not(:last-child){
+                  border-bottom: 1px solid #eee;
+              }
+              .question-box h3{
+                  margin: 0;
+                  padding: 15px;
+                  background: #dfdfdf;
+                  width: 600px;
+              }
+              .question-box h3:hover{
+                  cursor: pointer;
+              }
+              
+              .question-box .question-reply{
+                  background: #efefef;
+                  padding: 15px;
+              }
+              
+              .question-box .question-reply p{
+                  margin: 0;
+              }
+              
+          </style>
+        
+    </head>
+    <body>
+        
+        
+        <div id="app" class="container">
+            
+            <h1> Accordion For FAQ </h1>
+            
+            
+            <div class="question-box" v-for="question in questions">
+                
+                <h3 @click="question.open= !question.open" >{{question.title}}</h3>
+                <div v-if="question.open" class="question-reply">
+                    <p>{{question.reply}}</p>
+                </div>
+            
+            
+            </div>
+            
+        </div>
+        
+        
+    
+  <!--  <script src="vue.js"></script>-->
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>    
+    <script>
+        
+        var questions ={
+            
+            "question one":{
+                "open" : false,
+                "title" : "one: what happen when blaaaa1",
+                "reply":"you can do what you want1"
+            },
+            
+             "question two":{
+                "open" : false,
+                "title" : "two: what happen when blaaaa2",
+                "reply":"you can do what you want2"
+            },
+             "question three":{
+                "open" : false,
+                "title" : "three: what happen when blaaaa3",
+                "reply":"you can do what you want3"
+            }
+            
+        }
+        
+        var inst1 = new Vue({
+            
+            el:"#app",
+            data:{
+                
+                questions :questions
+               
+            },
+            methods:{
+              
+                
+            }
+            
+            
+            
+            
+            
+        })
+     
+        
+    
+        
+        
+        
+        
+        
+        
+   </script>
+        
+    </body>
+</html>
